@@ -50,11 +50,11 @@ class LandscapeDrawable(
       val currTreeHeight = MathUtils.lerp(treeHeight, treeHeight / 2, i / (planesCount - 1f))
       val height = landscapeHeight * (i + 1) / (planesCount + 1f)
       val fluctuation = height / 2
-      val color1 =
+      val color0 =
         argbEvaluator.evaluate(i.toFloat() / planesCount, landscapeColor, fogColor) as Int
-      val color2 =
+      val color1 =
         argbEvaluator.evaluate((i + 1).toFloat() / planesCount, landscapeColor, fogColor) as Int
-      val land = Land(color1, color2, fluctuation, currTreeHeight, 0.8f, random, paint)
+      val land = Land(color0, color1, fluctuation, currTreeHeight, 0.8f, random, paint)
       land.y = bounds.height() - height - currTreeHeight
       land.setSize(bounds.width().toFloat(), height + currTreeHeight)
       landscapes.add(0, land)
